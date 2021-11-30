@@ -5,7 +5,7 @@
 
 <% //Declaracion de las variables de recepcion de los datos %>
 
-<% 	String nick = request.getParameter("nick");
+<% 	String pass = request.getParameter("password");
 	String correo = request.getParameter("correo"); 
 	UsuarioDAO UDAO=new UsuarioDAO();
 	Usuario user = new Usuario();
@@ -15,7 +15,7 @@
 	/*
 	Cambiamos el valor de op para controlar si ha iniciado sesion correctamete y el tipo de usuario que es
 	*/
-	if(GU.existeNick(correo, nick)==true){
+	if(GU.existePass(correo, pass)==true){
 		GU.ponerFecha(correo);
 		if(GU.esAdmim(correo)==true){
 			op=0;

@@ -7,7 +7,8 @@
 		String apellidos = request.getParameter("apellidos");
 		String nick = request.getParameter("nick");
 		String correo = request.getParameter("correo");
-		String tipo = request.getParameter("tipo"); 
+		String tipo = request.getParameter("tipo");
+		String pass = request.getParameter("password");
 		int op; %>
 	<% //Conseguimos la fecha actual %>
 	<% 	 Date date = new Date();
@@ -27,6 +28,7 @@
 			user.setNick(nick);
 			user.setCorreo(correo);
 			user.setTipo(tipo);
+			user.setPass(pass);
 			user.setRegistro(fecha);
 			user.setUltima(null);
 			UDAO.escribirUsuarioBD(user);%>

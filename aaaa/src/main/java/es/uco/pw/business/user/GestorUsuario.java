@@ -84,6 +84,15 @@ public class GestorUsuario {
 		} 
 		return existe;
 	}
+	public boolean existePass(String correo, String password) {
+		boolean existe=false;
+		for(int i=0;i<ListaUsuarios.size();i++) {
+			if(correo.equals(ListaUsuarios.get(i).getCorreo()) && password.equals(ListaUsuarios.get(i).getPass())) {	
+				return true;
+			}
+		} 
+		return existe;
+	}
 	
 	public boolean esAdmim(String correo) {
 		boolean existe=false;
