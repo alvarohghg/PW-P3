@@ -70,7 +70,7 @@
 			<form method="post" action="pagAdmin.jsp">
 			    	<button class="button button1" type=submit value=<%= correo %> id="correo" name="correo">Valorar critica</button>
 			</form>	<br>
-			<form method="post" action="pagAdmin.jsp">
+			<form method="post" action="EliminarCritica.jsp">
 			    	<button class="button button1" type=submit value=<%= correo %> id="correo" name="correo">Eliminar critica</button>
 			</form>	<br>
 			<a  href="/aaaa/index.jsp">

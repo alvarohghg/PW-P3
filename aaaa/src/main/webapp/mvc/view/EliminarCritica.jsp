@@ -10,12 +10,18 @@
 		Criticas critica = new Criticas();
 		GestorCriticas GC = GestorCriticas.getInstancia();
 		ArrayList<Criticas> ListaCriticas = CDAO.obtenerCriticas();
-	%>
+		int aux=0;
+		 for(int i=0; i< ListaCriticas.size();i++){ 
+        	if(correo.equals(ListaCriticas.get(i).getAutor())==true){
+        		aux++;
+        	}
+		 }	
+        %>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Consular Critica</title>
+		<title>Eliminar Critica</title>
 		<!-- Declaración del estilo-->
 		<style>
 			table {
@@ -56,7 +62,7 @@
 			tr:hover {background-color: pink;}
 			tr:nth-child(odd) {background-color: #cc6699;}
 			tr:nth-child(even) {background-color: #993366;}
-			td:nth-child(3n){background-color:#48465d;
+			td:nth-child(2n){background-color:#48465d;
 
 		</style>
 	</head>
@@ -64,32 +70,37 @@
 		<!-- Contenedor (div) para introducir la lista-->
 		<!-- Tabla que usaremos como lista-->
 		<div align="center">
+		<%
+		if(aux==0){%>
+			 <p >No has escrito ninguna crtica </p>
+		<%}
+		else{
+		%>
         <table  border="0" cellpadding=5  >
 		<!-- Título"LISTA DE USUARIOS"-->
             <caption><h2 style="text-align:center">Criticas</h2></caption>
             <tr>
                 <th>Titulo</th>
-                <th>Autor</th>
             </tr>
 		<!-- Traducción de la variable "tipo" de la base de datos-->
             <% for(int i=0; i< ListaCriticas.size();i++){ 
-            	String titulo=ListaCriticas.get(i).getTitulo();
-            	String autor=ListaCriticas.get(i).getAutor();
-
-            %>
-                <tr >
-                    <td><%= titulo %> </td>
-                    <td><%= autor %> </td>
-					<!-- Botón de "Modificar datos" junto al usuario a modificar-->
-                    
-	                    <td >
-					 <!-- Formulario para enviar mediante el método POST el usuario a modificar a "modificarDatos.jsp"-->
-	                    <form method="post" action= "VerCriticas.jsp">
-			    			<button class="button1" type=submit value=<%= titulo %> id="titulo" name="titulo">Ver critica</button>
-						</form>
-                </tr>
+	            	if(correo.equals(ListaCriticas.get(i).getAutor())==true){
+	            	String titulo=ListaCriticas.get(i).getTitulo();
+	            %>
+	                <tr >
+	                    <td><%= titulo %> </td>
+						<!-- Botón de "Modificar datos" junto al usuario a modificar-->
+	                    
+		                    <td >
+						 <!-- Formulario para enviar mediante el método POST el usuario a modificar a "modificarDatos.jsp"-->
+		                    <form method="post" action= "VerCriticas.jsp">
+				    			<button class="button1" type=submit value=<%= titulo %> id="titulo" name="titulo">Eliminar</button>
+							</form>
+	                </tr>
                 
-             <%} %>
+             		<%}
+            	}
+            }%>
            
         </table>
        
