@@ -1,15 +1,6 @@
 package es.uco.pw.data.dao;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Properties;
-
-//import com.mysql.jdbc.ResultSet;
-
 import es.uco.pw.business.user.Usuario;
 import es.uco.pw.data.common.DBConnection;
 

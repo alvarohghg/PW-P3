@@ -1,10 +1,9 @@
 package es.uco.pw.data.common;
-import java.io.*;
-import java.sql.*;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
+//import java.util.Properties;
 
 /**
  * A class to manage the MySQL connection (general methods and configuration).

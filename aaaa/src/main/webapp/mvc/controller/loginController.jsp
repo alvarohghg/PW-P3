@@ -5,7 +5,7 @@
 
 <% //Declaracion de las variables de recepcion de los datos %>
 
-<% 	String nick = request.getParameter("nick");
+<% 	String pass = request.getParameter("password");
 	String correo = request.getParameter("correo"); 
 	UsuarioDAO UDAO=new UsuarioDAO();
 	Usuario user = new Usuario();
@@ -15,7 +15,7 @@
 	/*
 	Cambiamos el valor de op para controlar si ha iniciado sesion correctamete y el tipo de usuario que es
 	*/
-	if(GU.existeNick(correo, nick)==true){
+	if(GU.existePass(correo, pass)==true){
 		GU.ponerFecha(correo);
 		if(GU.esAdmim(correo)==true){
 			op=0;
@@ -66,13 +66,13 @@
 		<% if(op==0){%>
 			 	<h1>Sesion inicida correctamente</h1>
 				
-				<form methon="post" action="../view/pagAdmin.jsp">
+				<form method="post" action="../view/Admin.jsp">
 			    	<button class="button button1" type=submit value=<%= correo %> id="correo" name="correo">Continuar</button>
 				</form>	
 		<%}
 		else if(op==1){%>
 			<h1>Sesion inicida correctamente</h1>
-			<form methon="post" action="../view/pagEspec.jsp">
+			<form method="post" action="../view/Espectador.jsp">
 			    	<button class="button button1" type=submit value=<%= correo %> id="correo" name="correo">Continuar</button>
 
 			</form>

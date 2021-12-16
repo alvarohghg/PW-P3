@@ -1,16 +1,8 @@
 package es.uco.pw.business.user;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.*;
-import java.util.Properties;
 import java.util.Scanner;
-import java.time.*;
-import es.uco.pw.business.user.Usuario;
 import es.uco.pw.data.dao.UsuarioDAO;
 
 /**
@@ -79,6 +71,15 @@ public class GestorUsuario {
 		boolean existe=false;
 		for(int i=0;i<ListaUsuarios.size();i++) {
 			if(correo.equals(ListaUsuarios.get(i).getCorreo()) && nick.equals(ListaUsuarios.get(i).getNick())) {	
+				return true;
+			}
+		} 
+		return existe;
+	}
+	public boolean existePass(String correo, String password) {
+		boolean existe=false;
+		for(int i=0;i<ListaUsuarios.size();i++) {
+			if(correo.equals(ListaUsuarios.get(i).getCorreo()) && password.equals(ListaUsuarios.get(i).getPass())) {	
 				return true;
 			}
 		} 

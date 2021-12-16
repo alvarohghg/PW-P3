@@ -7,23 +7,27 @@
    String correo = request.getParameter("correo"); 
    String nombre = request.getParameter("nombre"); 
    String apellidos = request.getParameter("apellidos"); 
-   String nick = request.getParameter("nick"); %>
+   String nick = request.getParameter("nick");
+   String pass = request.getParameter("password");%>
 
 <%	UsuarioDAO UDAO=new UsuarioDAO();
 	Usuario user = new Usuario();
 	GestorUsuario GU =new GestorUsuario();
 	/*
-	LLamamos las funciones de modificar los datos, dentro de ellas ya se camiba en a base de datos
+	LLamamos las funciones de modificar los datos, dentro de ellas ya se cambia en la base de datos
 	*/
 	
 	if(nombre.equals("")==false){
-		GU.updateUser(correo, nombre, null, null, null, 2);
+		GU.updateUser(correo, nombre, null, null, null,null, 2);
 	}
 	if(apellidos.equals("")==false){
-		GU.updateUser(correo, null, apellidos, null, null, 3);
+		GU.updateUser(correo, null, apellidos, null, null,null, 3);
 	}
 	if(nick.equals("")==false){
-		GU.updateUser(correo, null, null, nick, null, 1);
+		GU.updateUser(correo, null, null, nick, null,null, 1);
+	}
+	if(pass.equals("")==false){
+		GU.updateUser(correo, null, null, null, null,pass, 5);
 	}
 %>
    

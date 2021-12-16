@@ -13,7 +13,7 @@
 			form,h2 {
 				 text-align:center;
 			}
-			input[type=text]{
+			input[type=text], input[type=password]{
 
 			  padding: 12px 20px;
 			  margin: 8px 0;
@@ -46,11 +46,11 @@
 	<body>
 			<!-- Formulario que se pasará mediante el método POST a "loginController.jsp"-->
 			<form method="post" action="../controller/loginController.jsp">
-				<label for="name">Nick: </label>
-				<input type="text" name="nick" value="" id="nick"><br/>
 				<label for="email">Correo: </label>
 				<input type="text" name="correo" value="" id="correo">	
 				<br/>
+				<label for="password">Password: </label>
+				<input type="password" name="password" value="" id="password"><br/>
 				<input type="submit" value="Iniciar">	
 			</form>
 	</body>
