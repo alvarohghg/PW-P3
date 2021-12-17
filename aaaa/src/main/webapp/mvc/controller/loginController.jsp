@@ -64,14 +64,14 @@
 	<body>
 		<!--Mostramos una pagina diferente segun el tipo de usuario y redireccionamos -->
 		<% if(op==0){%>
-			 	<h1>Sesion inicida correctamente</h1>
+			 	<h1>Sesion iniciada correctamente</h1>
 				
 				<form method="post" action="../view/Admin.jsp">
 			    	<button class="button button1" type=submit value=<%= correo %> id="correo" name="correo">Continuar</button>
 				</form>	
 		<%}
 		else if(op==1){%>
-			<h1>Sesion inicida correctamente</h1>
+			<h1>Sesion iniciada correctamente</h1>
 			<form method="post" action="../view/Espectador.jsp">
 			    	<button class="button button1" type=submit value=<%= correo %> id="correo" name="correo">Continuar</button>
 

@@ -67,7 +67,7 @@
 			<form method="post" action="ConsultarCritica.jsp">
 			    	<button class="button button1" type=submit value=<%= correo %> id="correo" name="correo">Consultar critica</button>
 			</form>	<br>
-			<form method="post" action="pagAdmin.jsp">
+			<form method="post" action="ValorarCritica.jsp">
 			    	<button class="button button1" type=submit value=<%= correo %> id="correo" name="correo">Valorar critica</button>
 			</form>	<br>
 			<form method="post" action="EliminarCritica.jsp">

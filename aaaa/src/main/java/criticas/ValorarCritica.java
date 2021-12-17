@@ -3,24 +3,28 @@ package criticas;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import es.uco.pw.business.user.Criticas;
+import es.uco.pw.business.user.GestorCriticas;
 import es.uco.pw.data.dao.CriticasDAO; 
 
 /**
  * Servlet implementation class EliminarCritca
  */
-@WebServlet("/BorrarCritica")
-public class BorrarCritica extends HttpServlet {
+@WebServlet("/ValorarCritica")
+public class ValorarCritica extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public BorrarCritica() {
+    public ValorarCritica() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,8 +44,11 @@ public class BorrarCritica extends HttpServlet {
 		// TODO Auto-generated method stub
 		String titulo = request.getParameter("titulo");
 		String correo = request.getParameter("correo");
-		CriticasDAO CDAO=new CriticasDAO();
-		CDAO.borraCriticaBD(titulo, correo);
+		String valoracion = request.getParameter("valoracion");
+		Float puntuacion= Float.parseFloat(valoracion);
+		GestorCriticas C= GestorCriticas.getInstancia();
+		int result=C.votarCritica(correo, puntuacion, titulo);
+		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 			  out.println("<!DOCTYPE html>");
@@ -55,17 +62,49 @@ public class BorrarCritica extends HttpServlet {
 			  out.println("background-repeat: no-repeat;");
 			  out.println("background-attachment: fixed;  ");
 			  out.println("background-size: cover;");
-			  out.println("}");   
+			  out.println("}");
+			  out.println("button {");
+			  out.println("background-color: #bd7df280;");
+			  out.println("border: none;");
+			  out.println("color: black;");
+			  out.println("padding: 4px;");
+			  out.println("text-align: center;");
+			  out.println(" text-decoration: none;");
+			  out.println(" display: inline-block;");
+			  out.println(" font-size: 13.3px;");
+			  out.println(" margin: 1px 1px;");
+			  out.println(" cursor: pointer;");
+			  out.println("}");
+			  out.println(".button1 {");
+			  out.println("	text-align: center;");
+			  out.println("	border-radius: 8px;");
+	  		  out.println("}");
 			  out.println("</style>");  
 			  out.println("</head>");
 			  out.println("<body>");
+			  
+			  if(result==0) {
+				  
 				  out.println("<script defer type=\"text/javascript\">");
-				  out.println("location='/aaaa/mvc/view/Espectador.jsp';");
-				  out.println("alert('Critica eliminada con exito');");
+				  out.println("alert('Critica votada con exito');");
 				  out.println("</script>");
-			  out.println("<form>");
-			  out.println("<input type='hidden' value= '"+correo+"' id='correo' name='correo'> ");
-			  out.println("</form>");
+				 
+				  out.println("<form method='post' action='/aaaa/mvc/view/Espectador.jsp'>");
+				  out.println("<button class='button1' type='submit' value='"+correo+"' id='correo' name='correo'>Ir a menu</button>");
+				  out.println("</form>");
+				  
+			  }
+			  else {
+				  
+				  out.println("<script defer type=\"text/javascript\">");
+				  out.println("alert('No puede valorar 2 veces la misma critica');");
+				  out.println("</script>");
+				
+				  out.println("<form method='post' action='/aaaa/mvc/view/ValorarCritica.jsp'>");
+				  out.println("<button class='button1' type='submit' value='"+correo+"' id='correo' name='correo'>Reintentar</button>");
+				  out.println("</form>");
+				  
+			  }
 			  out.println("</body>");
 			  out.println("</html>");
 

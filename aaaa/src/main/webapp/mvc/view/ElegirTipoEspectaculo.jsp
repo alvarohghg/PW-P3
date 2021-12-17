@@ -61,7 +61,7 @@
 			<form method="post" action="pagAdmin.jsp">
 			    	<button class="button button1" type=submit value=<%= correo %> id="correo" name="correo">Espectaculo Puntual</button>
 			</form>	<br>
-			<form method="post" action="pagAdmin.jsp">
+			<form method="post" action="AddMultiple.jsp">
 			    	<button class="button button1" type=submit value=<%= correo %> id="correo" name="correo">Espectaculo Multiple</button>
 			</form>	<br>
 			<form method="post" action="pagAdmin.jsp">

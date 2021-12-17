@@ -125,9 +125,10 @@ public class GestorCriticas {
 	 * @param titulo titulo de la critica a votar
 	 * @throws IOException
 	 */
-	public void votarCritica(String correo, float puntuacion, String titulo) throws IOException {
+	public int votarCritica(String correo, float puntuacion, String titulo) throws IOException {
+		ListaCriticas= CDAO.obtenerCriticas();
 		if(titulo.equals(null)) {
-			System.out.println("Ha ocurrido un fallo");
+			//System.out.println("Ha ocurrido un fallo");
 			
 		}else {
 			ArrayList<String> listaVotantes= new ArrayList<String>();
@@ -168,13 +169,14 @@ public class GestorCriticas {
 				}
 			}
 			else {
-				System.out.println("No puede votar 2 veces la misma critica\n");
+				//System.out.println("No puede votar 2 veces la misma critica\n");
+				return 1;
 			}
 			
 			
 		}
 		
-		
+		return 0;
 	}
 	
 	
