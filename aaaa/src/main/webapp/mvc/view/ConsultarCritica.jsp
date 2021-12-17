@@ -85,7 +85,7 @@
 	                    <td >
 					 <!-- Formulario para enviar mediante el método POST el usuario a modificar a "modificarDatos.jsp"-->
 	                    <form method="post" action= "VerCriticas.jsp">
-			    			<button class="button1" type=submit value=<%= titulo %> id="titulo" name="titulo">Ver critica</button>
+			    			<button class="button1" type=submit value="<%= titulo %>" id="titulo" name="titulo">Ver critica</button>
 						</form>
                 </tr>
                 

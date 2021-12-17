@@ -50,7 +50,7 @@ public class RegistroUsuarios extends HttpServlet {
 		String correo = request.getParameter("correo");
 		String tipo = request.getParameter("tipo");
 		String pass = request.getParameter("password");
-	 //Conseguimos la fecha actual 
+		//Conseguimos la fecha actual 
 	 	Date date = new Date();
    		long timeInMilliSeconds = date.getTime();
 		java.sql.Date fecha = new java.sql.Date(timeInMilliSeconds) ; 
