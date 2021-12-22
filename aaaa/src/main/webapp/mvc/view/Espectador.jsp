@@ -58,7 +58,7 @@
 		<!-- Tabla que usaremos como lista-->
 		<div align="center">
         
-			<form method="post" action="pagAdmin.jsp">
+			<form method="post" action="BuscarEspect.jsp">
 			    	<button class="button button1" type=submit value=<%= correo %> id="correo" name="correo">Buscar critica</button>
 			</form>	<br>
 			<form method="post" action="pagAdmin.jsp">

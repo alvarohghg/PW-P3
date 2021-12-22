@@ -58,7 +58,9 @@ public class GestorEspectaculos {
 	public void setListaEspectaculosM(ArrayList<EspectaculoMultiple> listaEspectaculosM) {
 		ListaEspectaculosM = listaEspectaculosM;
 	}
-	
+	public ArrayList<EspectaculoMultiple> getListaEspectaculosM() {
+		return ListaEspectaculosM;
+	}
 	
 	public void guardarBDlistas() {
 		ListaEspectaculosP = PDAO.obtenerPuntual();
@@ -697,6 +699,25 @@ public class GestorEspectaculos {
 				}
 			}
 			return tipo;
+		}
+		
+		public categoria queCate(String titulo) {
+			for(int i=0;i<ListaEspectaculosM.size();i++) {
+				if(titulo.equals(ListaEspectaculosM.get(i).getTitulo())) {
+					return ListaEspectaculosM.get(i).getCategoria();
+				}
+			}
+			for(int i=0;i<ListaEspectaculosT.size();i++) {
+				if(titulo.equals(ListaEspectaculosT.get(i).getTitulo())) {
+					return ListaEspectaculosT.get(i).getCategoria();
+				}
+			}
+			for(int i=0;i<ListaEspectaculosP.size();i++) {
+				if(titulo.equals(ListaEspectaculosP.get(i).getTitulo())) {
+					return ListaEspectaculosP.get(i).getCategoria();
+				}
+			}
+			return null;
 		}
 		
 		public String propiedades(int elec) {

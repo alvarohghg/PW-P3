@@ -14,7 +14,7 @@ public class AbstractEspectaculo {
 	protected String titulo;
 	protected String descripcion;
 	public enum categoria{
-		concierto,obra,Concierto,Obra,Monologo,monologo;
+		concierto,obra,Concierto,Obra,Monologo,monologo,cualquiera;
 	}
 	protected int aforolocalidades;
 	
