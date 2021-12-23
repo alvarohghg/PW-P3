@@ -51,11 +51,17 @@ public class MultipleServlet extends HttpServlet {
 		int loc_mult = Integer.parseInt(request.getParameter("loc_mult"));
 		int num_fechas = Integer.parseInt(request.getParameter("nfechas"));
 		ArrayList<java.sql.Date> fechas_mult=new ArrayList<java.sql.Date>();
-		for(int i=1;i<num_fechas;i++) {
-				fechas_mult.add(request.getParameter("Fecha"+i));
+		for(int i=1;i<=num_fechas;i++) {
+				String pasando="Fecha" + i;
+				
+				String sfecha=request.getParameter(pasando);
+				
+				java.sql.Date ufecha= java.sql.Date.valueOf(sfecha);
+				
+				fechas_mult.add(ufecha);
 		}
 
-		MultipleDAO MDAO=new MultipleDAO();
+		
 		EspectaculoMultiple multiple = new EspectaculoMultiple(); 
 		GestorEspectaculos GE =new GestorEspectaculos();
 		
@@ -70,12 +76,7 @@ public class MultipleServlet extends HttpServlet {
 			
 		}else {
 			
-			multiple.setTitulo(titulo_mult);
-			multiple.setDescripcion(desc_mult);
-			multiple.setCategoria(categoria_mult);
-			multiple.setAforolocalidades(aforo_mult);
-			multiple.setLocalidadesvendidas(loc_mult);
-			multiple.setListaFechas(fechas_mult);
+			
 			GE.registerEspectaculoM(titulo_mult, desc_mult, categoria_mult, aforo_mult, loc_mult, fechas_mult);
 			if(GE.existeEspectaculo(titulo_mult)){
 				salida.println("<HTML> <body style='background-color: black' ><script defer type=\"text/javascript\">");
@@ -89,7 +90,7 @@ public class MultipleServlet extends HttpServlet {
 				salida.println("location='/aaaa/index.jsp';");
 				salida.println("</script></body></HTML> ");
 			}
-			//MDAO.escribirMultipleBD(multiple);
+			
 			
 			
 			
