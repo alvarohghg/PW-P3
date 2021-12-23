@@ -57,7 +57,7 @@ public class PuntualServlet extends HttpServlet {
 		categoria categoria_punt = Enum.valueOf(categoria.class ,request.getParameter("categoria_punt"));
 		int aforo_punt = Integer.parseInt(request.getParameter("aforo_punt"));
 		int loc_punt = Integer.parseInt(request.getParameter("loc_punt"));
-		Date fecha_punt=request.getParameter("fecha_punt");
+		java.sql.Date fecha_punt=java.sql.Date.valueOf(request.getParameter("fecha_punt"));
 		
 		PuntualDAO PDAO=new PuntualDAO();
 		EspectaculoPuntual puntual = new EspectaculoPuntual(); 
@@ -83,7 +83,6 @@ public class PuntualServlet extends HttpServlet {
 			salida.println("<HTML> <body style='background-color: black' ><script defer type=\"text/javascript\">");
 			salida.println("alert('Espectaculo puntual creado correctamente');");
 			salida.println("location='/aaaa/index.jsp';");
-			salida.println("location='';");
 			salida.println("</script></body></HTML> ");
 			
 		}
