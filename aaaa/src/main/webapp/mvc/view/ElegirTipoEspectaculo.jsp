@@ -16,7 +16,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Espectador</title>
+		<title>Elegir tipo</title>
 		<!-- Declaración del estilo-->
 		<style>
 			table {
@@ -58,13 +58,13 @@
 		<!-- Tabla que usaremos como lista-->
 		<div align="center">
         
-			<form method="post" action="pagAdmin.jsp">
+			<form method="post" action="AddPuntual.jsp">
 			    	<button class="button button1" type=submit value=<%= correo %> id="correo" name="correo">Espectaculo Puntual</button>
 			</form>	<br>
 			<form method="post" action="AddMultiple.jsp">
 			    	<button class="button button1" type=submit value=<%= correo %> id="correo" name="correo">Espectaculo Multiple</button>
 			</form>	<br>
-			<form method="post" action="pagAdmin.jsp">
+			<form method="post" action="addTemporada.jsp">
 			    	<button class="button button1" type=submit value=<%= correo %> id="correo" name="correo">Espectaculo Temporada</button>
 			</form>	<br>
 			<a  href="/aaaa/index.jsp">

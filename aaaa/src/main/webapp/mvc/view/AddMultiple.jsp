@@ -2,7 +2,6 @@
     pageEncoding="ISO-8859-1"%>
     <!DOCTYPE html>
 <html>
-
 <head>
   <style>
     * {
@@ -130,7 +129,7 @@
 
 
   <div class="container">
-    <form id="formulario">
+    <form id="formulario" method="post" action="/aaaa/MultipleServlet">
       <div class="row">
         <div class="col-25">
           <label for="titulo_mult">Titulo</label>
@@ -151,12 +150,12 @@
       <div class="row">
         <div class="col-25">
           <label for="categoria_mult">Categoria</label>
-          <select id="Seleccionar1" name="Seleccionar1" required>
+          <select id="categoria_mult" name="categoria_mult" required>
             <option value="obra">obra</option>
             <option value="concierto">concierto</option>
             <option value="monologo">monologo</option>
           </select>
-        </div>
+        </div></div>
         <div class="row">
           <div class="col-25">
             <label for="aforo_mult">Aforo</label>
@@ -180,10 +179,10 @@
             <label for="nfechas">Numero de fechas</label>
           </div>
           <div class="col-75">
-            <input type="text" id="nfechas" required> <input id="Botoncito" type="button" value="Seleccionar fechas"
+            <input type="text" id="nfechas" name="nfechas" required> <input id="Botoncito" type="button" value="Seleccionar fechas"
               onclick="myFunction(document.getElementById('nfechas').value)" required>
           </div>
-
+		</div>
           <br>
           <div class="row">
             <input type="submit" value="Crear espectaculo multiple">

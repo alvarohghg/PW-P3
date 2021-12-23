@@ -85,9 +85,9 @@
                    <td><%= l.get(i) %> </td>
                    
                 <td style="text-align:center" >
-				 <!-- Formulario para enviar mediante el método POST el usuario a modificar a "modificarDatos.jsp"-->
-                    <form method="post" action= "/aaaa/ValorarCritica" > 
-		    			<button class="button1" type=submit value="<%= l.get(i) %>" id="titulo" name="titulo">Cancelar</button>
+				 <!-- Formulario para enviar mediante el método POST el espect a modificar a "cancelarEspectaculoServlet.jsp"-->
+                    <form method="post" action= "borrarSesiones.jsp" > 
+		    			<button class="button1" type=submit value="<%= l.get(i) %>" id="titulo" name="titulo">Eliminar fechas</button>
 					</form>
 				</td>
                </tr>
