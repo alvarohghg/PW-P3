@@ -722,7 +722,20 @@ public class GestorEspectaculos {
 			}
 			return null;
 		}
-		
+		void addFechaMultiple(String titulo, Date fecha) {
+			for(int i=0;i<ListaEspectaculosM.size();i++){
+				if(titulo.equals(ListaEspectaculosM.get(i).getTitulo())) {
+					for(int j=0;j<ListaEspectaculosM.get(i).getListaFechas().size();j++) {
+						
+						ListaEspectaculosM.get(i).getListaFechas().add(fecha);
+						MDAO.escribirMultipleFechaBD(titulo,fecha);
+					}
+						
+				}
+			}
+			
+			
+		}
 		public String propiedades(int elec) {
 			
 			Properties prop = new Properties();
