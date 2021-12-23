@@ -32,7 +32,7 @@ public class TemporadaServlet extends HttpServlet {
      * @return 
      * @see HttpServlet#HttpServlet()
      */
-    public PuntualServlet() {
+    public TemporadaServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -57,8 +57,8 @@ public class TemporadaServlet extends HttpServlet {
 		int aforo_temp = Integer.parseInt(request.getParameter("aforo_temp"));
 		int loc_temp = Integer.parseInt(request.getParameter("loc_temp"));
 		String dia_temp = request.getParameter("dia_temp");
-		Date inicio_temp =request.getParameter("inicio_temp");
-		Date fin_temp =request.getParameter("fin_temp");
+		java.sql.Date inicio_temp =java.sql.Date.valueOf(request.getParameter("inicio_temp"));
+		java.sql.Date fin_temp =java.sql.Date.valueOf(request.getParameter("fin_temp"));
 
 		TemporadaDAO TDAO=new TemporadaDAO();
 		EspectaculoTemporada temporada = new EspectaculoTemporada(); 
@@ -69,9 +69,9 @@ public class TemporadaServlet extends HttpServlet {
 		if(GE.existeEspectaculo(titulo_temp)) {
 			salida.println("<HTML> <body style='background-color: black' ><script defer type=\"text/javascript\">");
 			salida.println("alert('Error al crear el espectaculo de temporada');");
-			/*TO DO
-			salida.println("location='';");
-			*/
+			
+			salida.println("location='/aaaa/index.jsp';");
+			
 			salida.println("</script></body></HTML> ");
 			
 		}else {
@@ -87,7 +87,7 @@ public class TemporadaServlet extends HttpServlet {
 			salida.println("<HTML> <body style='background-color: black' ><script defer type=\"text/javascript\">");
 			salida.println("alert('Espectaculo de temporada creado correctamente');");
 			//TO DO la location
-			salida.println("location='';");
+			salida.println("location='/aaaa/index.jsp';");
 			salida.println("</script></body></HTML> ");
 			
 		}
