@@ -110,9 +110,11 @@
         document.getElementById("formulario").appendChild(document.createElement("br"));
         var para = document.createElement("input");
 
-        para.id = "Fecha" + i;
+        para.id ="Fecha" + i;
+        para.name ="Fecha" + i;
         para.type = "date";
         para.required = true;
+        para.pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}";
         document.getElementById("formulario").appendChild(para);
         document.getElementById("formulario").appendChild(document.createElement("br"));
       }
