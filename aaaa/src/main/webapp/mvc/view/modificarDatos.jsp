@@ -68,7 +68,7 @@
 		  <label for="apellidos">Nuevos apellidos</label><br>
 		  <input type="text" id="apellidos" name="apellidos" value=""><br>
 		  <label for="password">Nueva password</label><br>
-		  <input type="text" id="password" name="password" value=""><br>
+		  <input type="password" id="password" name="password" value=""><br>
 		  <div style="text-align:center ">
 		     	<input type="submit" value="Modificar" >
 		      

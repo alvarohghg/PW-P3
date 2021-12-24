@@ -382,6 +382,8 @@ public class GestorEspectaculos {
 		 */
 		public void updateEspectaculoM(String titulo,String nuevotitulo,String nuevadescripcion,categoria nuevacategoria,int nuevoaforolocalidades,
 				int localidadesvendidas,Date fecha1,Date fecha2,int opcion) throws IOException {
+			
+			ListaEspectaculosM = MDAO.obtenerMultiple();
 			for(int i=0;i<ListaEspectaculosM.size();i++) {
 				if(titulo.equals(ListaEspectaculosM.get(i).getTitulo())) {
 							switch(opcion) {
@@ -402,7 +404,6 @@ public class GestorEspectaculos {
 								break;
 								case 6:
 									this.ListaEspectaculosM.get(i).actualizarFecha(fecha1,fecha2);
-										
 								break;
 							}
 				}
@@ -424,6 +425,7 @@ public class GestorEspectaculos {
 		 */
 		public void updateEspectaculoP(String titulo,String nuevotitulo,String nuevadescripcion,categoria nuevacategoria,int nuevoaforolocalidades,
 				int localidadesvendidas,Date fecha2,int opcion) throws IOException {
+			ListaEspectaculosP = PDAO.obtenerPuntual();
 			for(int i=0;i<ListaEspectaculosP.size();i++) {
 				if(titulo.equals(ListaEspectaculosP.get(i).getTitulo())) {
 							switch(opcion) {
@@ -469,6 +471,7 @@ public class GestorEspectaculos {
 		 */
 		public void updateEspectaculoT(String titulo,String nuevotitulo,String nuevadescripcion,categoria nuevacategoria,int nuevoaforolocalidades,
 				int localidadesvendidas,Date nuevafechafin,Date nuevafechainicio,String dia,int opcion) throws IOException {
+			ListaEspectaculosT = TDAO.obtenerTemporada();
 			for(int i=0;i<ListaEspectaculosT.size();i++) {
 				if(titulo.equals(ListaEspectaculosT.get(i).getTitulo())) {
 							switch(opcion) {
@@ -686,6 +689,9 @@ public class GestorEspectaculos {
 		 */
 		public int tipoEvento(String titulo) {
 			int tipo=0;
+			ListaEspectaculosP = PDAO.obtenerPuntual();
+			ListaEspectaculosT = TDAO.obtenerTemporada();
+			ListaEspectaculosM = MDAO.obtenerMultiple();
 			for(int i=0;i<ListaEspectaculosM.size();i++) {
 				if(titulo.equals(ListaEspectaculosM.get(i).getTitulo())) {
 					tipo=1; //Espectaculo Multiple
@@ -722,20 +728,7 @@ public class GestorEspectaculos {
 			}
 			return null;
 		}
-		void addFechaMultiple(String titulo, Date fecha) {
-			for(int i=0;i<ListaEspectaculosM.size();i++){
-				if(titulo.equals(ListaEspectaculosM.get(i).getTitulo())) {
-					for(int j=0;j<ListaEspectaculosM.get(i).getListaFechas().size();j++) {
-						
-						ListaEspectaculosM.get(i).getListaFechas().add(fecha);
-						MDAO.escribirMultipleFechaBD(titulo,fecha);
-					}
-						
-				}
-			}
-			
-			
-		}
+		
 		public String propiedades(int elec) {
 			
 			Properties prop = new Properties();
@@ -762,4 +755,18 @@ public class GestorEspectaculos {
 			}
 			return f;
 		}
+		
+		 void addFechaMultiple(String titulo, Date fecha) {
+	            for(int i=0;i<ListaEspectaculosM.size();i++){
+	                if(titulo.equals(ListaEspectaculosM.get(i).getTitulo())) {
+	                    for(int j=0;j<ListaEspectaculosM.get(i).getListaFechas().size();j++) {
+	                        ListaEspectaculosM.get(i).getListaFechas().add(fecha);
+	                        MDAO.escribirMultipleFechaBD(titulo,fecha);
+	                    }
+	                        
+	                }
+	            }
+	            
+	            
+	        }
 }

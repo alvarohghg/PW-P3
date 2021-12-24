@@ -315,20 +315,18 @@ public class MultipleDAO {
 	}
 	public void escribirMultipleFechaBD(String titulo, Date fecha ) {
         try {
-        	
+            
             DBConnection dbConnection = new DBConnection();
             Connection connection = dbConnection.getConnection();
             // Important: This query is hard-coded here for illustrative purposes only
-            String titulo=multiple.getTitulo();
-            //String query =propiedades(3);
 
-            String query2=null;
+            String query=null;
                 //query2 = propiedades(4);
-				query2 ="INSERT INTO  multiplefechas (titulo_multi, fecha_mult) VALUES (?,?) ";
-    			PreparedStatement ps1=connection.prepareStatement(query2);
-    			ps1.setString(1,titulo);
-    			ps1.setDate(2, fecha);
-    			ps1.executeUpdate();
+                query ="INSERT INTO  multiplefechas (titulo_multi, fecha_mult) VALUES (?,?) ";
+                PreparedStatement ps1=connection.prepareStatement(query);
+                ps1.setString(1,titulo);
+                ps1.setDate(2, fecha);
+                ps1.executeUpdate();
                
             
           

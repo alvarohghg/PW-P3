@@ -125,7 +125,7 @@
 										<td><%= especT.getFin()%></td></tr>
 								<%break;
 								case 3:%>
-								<th>Fechas</th>
+									<th>Fechas</th>
 
 								<% for(int i=0;i<especM.getListaFechas().size();i++) {%>
 									<td><%= especM.getListaFechas().get(i) %> </td>
@@ -147,8 +147,4 @@
 </html>
 
 
-				<td style="text-align:center" >
-					                    <form method="post" action= "/aaaa/CancelarSesiones" > 
-							    			<button class="button1" type=submit value="<%= especP.get(i).getTitulo() %>" id="titulo" name="titulo">Eliminar </button>
-										</form>
-									</td>
+				

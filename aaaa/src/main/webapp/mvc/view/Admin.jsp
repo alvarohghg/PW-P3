@@ -67,7 +67,7 @@
 			<a  href="AddEspect.jsp">
 				    <button class="button button1" type="button">Añadir un espectaculo</button>
 			</a><br><br>
-			 <a  href="ModEspect.jsp">
+			 <a  href="ModificarEspect.jsp">
 				    <button class="button button1" type="button">Modificar un espectaculo</button>
 			</a><br><br>
 			 <a  href="CancelarEspect.jsp">
