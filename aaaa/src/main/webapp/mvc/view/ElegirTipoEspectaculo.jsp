@@ -64,7 +64,7 @@
 			<form method="post" action="AddMultiple.jsp">
 			    	<button class="button button1" type=submit value=<%= correo %> id="correo" name="correo">Espectaculo Multiple</button>
 			</form>	<br>
-			<form method="post" action="addTemporada.jsp">
+			<form method="post" action="AddTemporada.jsp">
 			    	<button class="button button1" type=submit value=<%= correo %> id="correo" name="correo">Espectaculo Temporada</button>
 			</form>	<br>
 			<a  href="/aaaa/index.jsp">

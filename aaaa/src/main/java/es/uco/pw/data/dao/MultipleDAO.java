@@ -112,22 +112,31 @@ public class MultipleDAO {
 			int localidades = 0;
 			
 			while (rs.next()) {
+				listaFechas.clear();
+
 				titulo = rs.getString("titulo_mult");
 				descripcion = rs.getString("descripcion_mult");
 				cate = es.uco.pw.business.user.AbstractEspectaculo.categoria.valueOf(rs.getString("categoria_mult"));
 				aforo = rs.getInt("aforolocalidades_mult");
 				localidades = rs.getInt("localidadesvendidas_mult");
 				//String query2=propiedades(2);
-				String query2=" select fecha_mult from multiplefechas where titulo_multi = ?";
+				String query2=" select * from multiplefechas WHERE titulo_multi=?";
 				PreparedStatement ps=connection.prepareStatement(query2);
-				ps.setString(1, titulo);
+				ps.setString(1,titulo);
 				ResultSet rs2 =  ps.executeQuery();
 				while(rs2.next()) {
-					Date fecha=rs2.getDate("fecha_mult");
-					listaFechas.add(fecha);
+					String titulo2=rs2.getString("titulo_multi");
+					if(titulo2.equals(titulo)) {
+						Date fecha=rs2.getDate("fecha_mult");
+						//System.out.println(titulo2+"="+titulo+"|"+fecha);
+						listaFechas.add(fecha);
+					}
 				}
-				listaM.add(new EspectaculoMultiple(titulo, descripcion, cate,aforo,localidades,listaFechas));
-				
+				//System.out.println(listaFechas);
+				listaM.add(new EspectaculoMultiple(titulo,descripcion,cate,aforo,localidades,listaFechas));
+
+				System.out.println(listaM);
+
 			}
 			
 			if (stmt != null){ 
@@ -139,6 +148,7 @@ public class MultipleDAO {
 			System.err.println(e);
 			e.printStackTrace();
 		}
+
 		return listaM;
 	}
 	/**
@@ -313,7 +323,7 @@ public class MultipleDAO {
 			e.printStackTrace();
 		}
 	}
-	public void escribirMultipleFechaBD(String titulo, Date fecha ) {
+	public boolean escribirMultipleFechaBD(String titulo, Date fecha ) {
         try {
             
             DBConnection dbConnection = new DBConnection();
@@ -331,9 +341,11 @@ public class MultipleDAO {
             
           
             dbConnection.closeConnection();
+            return true;
         } catch (Exception e){
             System.err.println(e);
             e.printStackTrace();
+            return false;
         }
     }
 }

@@ -64,7 +64,7 @@
 			<a  href="ElegirTipoEspectaculo.jsp">
 				    <button class="button button1" type="button">Dar de alta un espectaculo</button>
 			</a><br><br>
-			<a  href="AddEspect.jsp">
+			<a  href="listarMultiple.jsp">
 				    <button class="button button1" type="button">Añadir un espectaculo</button>
 			</a><br><br>
 			 <a  href="ModificarEspect.jsp">

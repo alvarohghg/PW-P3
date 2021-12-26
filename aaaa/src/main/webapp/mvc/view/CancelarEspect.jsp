@@ -68,7 +68,9 @@
 			tr:hover {background-color: pink;}
 			tr:nth-child(odd) {background-color: #cc6699;}
 			tr:nth-child(even) {background-color: #993366;}
-			td:nth-child(2n){background-color:#48465d;
+			td:nth-child(2n){background-color:#48465d;}
+			td:nth-child(3n){background-color:#48465d;
+			
 		</style>
 	</head>
 	<body>
@@ -88,6 +90,13 @@
 				 <!-- Formulario para enviar mediante el método POST el espect a modificar a "cancelarEspectaculoServlet.jsp"-->
                     <form method="post" action= "borrarSesiones.jsp" > 
 		    			<button class="button1" type=submit value="<%= l.get(i) %>" id="titulo" name="titulo">Eliminar fechas</button>
+		    			
+					</form>
+				</td>
+				<td style="text-align:center" >
+				 <!-- Formulario para enviar mediante el método POST el espect a modificar a "cancelarEspectaculoServlet.jsp"-->
+                    <form method="post" action= "/aaaa/BorrarEspect" > 
+		    			<button class="button1" type=submit value="<%= l.get(i) %>" id="titulo" name="titulo">Cancelar espectaculo</button>
 					</form>
 				</td>
                </tr>

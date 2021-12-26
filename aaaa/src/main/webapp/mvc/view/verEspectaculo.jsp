@@ -82,8 +82,9 @@
 							especP=ListaEspectaculoP.get(i);
 							tipo=1;
 							typecontrol=false;
+							break;
 						}
-						break;
+						
 					}
 				}
 				
@@ -101,8 +102,9 @@
 							especT=ListaEspectaculoT.get(i);
 							tipo=2;
 							typecontrol=false;
+							break;
 						}
-						break;
+						
 					}
 				}
 
@@ -117,8 +119,9 @@
 							especM.setListaFechas( ListaEspectaculoM.get(i).getListaFechas());
 							tipo=3;
 							typecontrol=false;
+							break;
 						}
-						break;
+						
 					}
 				}
 
