@@ -59,7 +59,7 @@
 	<h1><%= titulo %>  </h1>
 			<div align="center">
 		        <table  border="0" cellpadding=5  >
-				<!-- Título"LISTA DE USUARIOS"-->
+				<!-- Título"LISTA DE USUARIOS".-->
 				 <%for(int i=0; i< ListaCriticas.size();i++){ 
     					if(titulo.equals(ListaCriticas.get(i).getTitulo())==true) {%>
 
