@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import ="es.uco.pw.business.user.AbstractEspectaculo,es.uco.pw.business.user.EspectaculoMultiple,es.uco.pw.business.user.EspectaculoPuntual,es.uco.pw.business.user.EspectaculoTemporada, es.uco.pw.data.dao.MultipleDAO, es.uco.pw.data.dao.TemporadaDAO, es.uco.pw.data.dao.PuntualDAO, es.uco.pw.business.user.GestorCriticas,
 	 java.time.LocalDate, java.util.Date, java.sql.*, java.util.* " %>
-	<--! Recogemos el título y volcamos todos los espectaculos en sus listas correspondientes-->
+	<%-- Recogemos el título y volcamos todos los espectaculos en sus listas correspondientes  --%> 
 	<%
 	String titulo = request.getParameter("titulo");
 	
@@ -66,7 +66,7 @@
 	
 			<div align="center">
 		        <table  border="0" cellpadding=5>
-				<--! Creamos un espectaculo de cada tipo auxiliar y copiamos el que coincida el título de su lista correspondiente-->
+				<%-- Creamos un espectaculo de cada tipo auxiliar y copiamos el que coincida el título de su lista correspondiente --%>
 				<%
 				AbstractEspectaculo espec= new AbstractEspectaculo();
 				EspectaculoPuntual especP= new EspectaculoPuntual();
@@ -127,7 +127,7 @@
 				}
 
 				%>
-				<--! Mostramos los datos del espectaculo en una tabla con filas y columnas oportunas según el tipo de espectáculo que sea-->
+				 <%-- Mostramos los datos del espectaculo en una tabla con filas y columnas oportunas según el tipo de espectáculo que sea --%>
 						
 			            <tr >
 			                <th>Titulo</th>
