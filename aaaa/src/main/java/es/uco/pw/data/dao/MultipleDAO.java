@@ -17,7 +17,7 @@ import es.uco.pw.data.common.DBConnection;
 import es.uco.pw.business.user.AbstractEspectaculo.categoria;
 
 /**
- * Clase correspondiente a las funciones de creación/eliminación/modificación de
+ * Clase correspondiente a las funciones de creaciÃ³n/eliminaciÃ³n/modificaciÃ³n de
  * espectaculos multiples y sus fechas de la base de datos
  * @author Alvaro Berjillos
  * @author Francisco Javier Diaz
@@ -28,8 +28,8 @@ public class MultipleDAO {
 	/**
 	 * Funcion para obtener las secuencias de ordenes en sql del fichero
 	 * sqlM.properties 
-	 * @param r Opcion correspondiente a la línea 
-	 * que determinará los datos que se obtendrán
+	 * @param r Opcion correspondiente a la lÃ­nea 
+	 * que determinarÃ¡ los datos que se obtendrÃ¡n
 	 * @return f
 	 */
 	/*public String propiedades(int r) {
@@ -95,7 +95,7 @@ public class MultipleDAO {
 	 */
 	public ArrayList<EspectaculoMultiple> obtenerMultiple(){
 		ArrayList<EspectaculoMultiple> listaM = new ArrayList<EspectaculoMultiple>();
-		ArrayList<Date> listaFechas=new ArrayList<Date>();
+		
 		try {
 			DBConnection dbConnection = new DBConnection();
 			Connection connection = dbConnection.getConnection();
@@ -112,7 +112,7 @@ public class MultipleDAO {
 			int localidades = 0;
 			
 			while (rs.next()) {
-				listaFechas.clear();
+				ArrayList<Date> listaFechas=new ArrayList<Date>();
 
 				titulo = rs.getString("titulo_mult");
 				descripcion = rs.getString("descripcion_mult");
@@ -135,7 +135,7 @@ public class MultipleDAO {
 				//System.out.println(listaFechas);
 				listaM.add(new EspectaculoMultiple(titulo,descripcion,cate,aforo,localidades,listaFechas));
 
-				System.out.println(listaM);
+				//System.out.println(listaM);
 
 			}
 			
@@ -155,7 +155,7 @@ public class MultipleDAO {
 	 * Funcion para escribir un espectaculo multiple en la base de datos
 	 * pasado por argumento. Tambien escribira las fechas de las sesiones
 	 * en la tabla correspondiente
-	 * @param multiple Espectaculo que sera añadido a la base de datos
+	 * @param multiple Espectaculo que sera aÃ±adido a la base de datos
 	 */
 	public void escribirMultipleBD(EspectaculoMultiple multiple ) {
         try {
