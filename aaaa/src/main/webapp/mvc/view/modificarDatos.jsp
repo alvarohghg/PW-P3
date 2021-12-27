@@ -9,7 +9,7 @@
 <html>
 	<head>
 	<title>Modificar datos</title>
-	<!-- Declaración del estilo-->
+	<!-- Declaración del estilo.-->
 	<style>
 			form,h2,p {
 				 text-align:center;
