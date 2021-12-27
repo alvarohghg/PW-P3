@@ -13,7 +13,7 @@
 <html>
 	<head>
 	<title>Modificar espectaculos</title>
-	<!-- Declaración del estilo-->
+	<!-- DeclaraciÃ³n del estilo-->
 	<style>
 			form,h2,p {
 				 text-align:center;
@@ -57,11 +57,11 @@
 	</style>
 	</head>
 	<body>
-		<!-- Mostrar al usuario su identificador(invariable)-->
+		<!-- Mostrar al usuario su identificador(invariable).-->
 		
 		<h2>Modifique los datos del espectaculo</h2>
 		
-		<!-- Formulario que se pasará mediante el método POST a "guardarDatos.jsp"-->
+		<!-- Formulario que se pasarÃ¡ mediante el mÃ©todo POST a "guardarDatos.jsp"-->
 		<%if(tipo==1){ %>
 			<form method="post" action="/aaaa/ModMult">
 			  
