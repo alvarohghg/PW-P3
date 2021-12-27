@@ -3,7 +3,7 @@
    <%@ page import ="es.uco.pw.business.user.Criticas, es.uco.pw.data.dao.PuntualDAO, es.uco.pw.business.user.GestorEspectaculos,
    es.uco.pw.data.dao.MultipleDAO,es.uco.pw.data.dao.TemporadaDAO, es.uco.pw.business.user.EspectaculoMultiple,es.uco.pw.business.user.EspectaculoPuntual,es.uco.pw.business.user.EspectaculoTemporada,
 	 java.time.LocalDate, java.util.Date, java.sql.*, java.util.* " %>
- 
+ 	<%-- Recogemos el título y volcamos todos los espectaculos en sus listas correspondientes  --%> 
  <%
 	String titulo = request.getParameter("titulo");
  	MultipleDAO  MDAO=new MultipleDAO();
@@ -14,6 +14,8 @@
 	ArrayList<EspectaculoTemporada>ListaEspectaculoT = TDAO.obtenerTemporada();
 	int tipo=0;
 	Boolean typecontrol=true;
+	
+	//Creamos un espectaculo de cada tipo auxiliar y copiamos el que coincida el título de su lista correspondiente
 	
 	EspectaculoPuntual especP= new EspectaculoPuntual();
 	EspectaculoTemporada especT = new EspectaculoTemporada();
@@ -103,7 +105,7 @@
 	<h1><%=  titulo   %></h1>
 			<div align="center">
 		        <table  border="0" cellpadding=5  >
-				
+				 <%-- Mostramos el espectaculo y el botón de borrar,la vista cambia dependiendo del espectaculo  --%>
 				<tr>
 							<% switch(tipo){
 								case 1:%>
