@@ -107,6 +107,8 @@
 
 <body>
 
+<%-- Se crea el formulario para rellenar con los parametros de la crítica --%>
+	
   <div class="container">
     <form method="post" action= "/aaaa/PublicCritica">
       <div class="row">
