@@ -54,7 +54,7 @@
 		</style>
 	</head>
 	<body>
-		<!-- Contenedor (div) para introducir la lista-->
+		<!-- Contenedor (div) para introducir la lista.-->
 		<!-- Tabla que usaremos como lista-->
 		<div align="center">
         
