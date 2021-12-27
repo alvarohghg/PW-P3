@@ -30,7 +30,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Lista de espectaculos a modificar</title>
-		<!-- Declaración del estilo-->
+		<!-- DeclaraciÃ³n del estilo.-->
 		<style>
 			table {
 			  border-collapse: collapse;
@@ -78,19 +78,19 @@
 		<!-- Tabla que usaremos como lista-->
 		<div align="center">
         <table  border="0" cellpadding=5  >
-		<!-- Título"LISTA DE USUARIOS"-->
+		<!-- TÃ­tulo"LISTA DE USUARIOS"-->
             <caption><h2 style="text-align:center">Espectaculos</h2></caption>
             <tr>
                 <th>Titulo</th>
             </tr>
-		<!-- Traducción de la variable "tipo" de la base de datos-->
+		<!-- TraducciÃ³n de la variable "tipo" de la base de datos-->
             <% for(int i=0; i< l.size();i++){ 
             	String titulo=l.get(i);
 
             %>
                 <tr >
                     <td><%= titulo %> </td>
-					<!-- Botón de "Modificar datos" junto al usuario a modificar-->
+					<!-- BotÃ³n de "Modificar datos" junto al usuario a modificar-->
 	                    <td >
 	                    <form method="post" action= "FormDModEspect.jsp">
 			    			<button class="button1" type=submit value="<%= titulo %>" id="titulo" name="titulo">Modificar</button>
