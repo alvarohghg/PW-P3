@@ -88,7 +88,7 @@
                     <td ><%= nick %> </td>
                     <td><%= tipo %> </td>
                     <td><%= fecha %> </td>
-			<!-- Botón de "Modificar datos" junto al usuario a modificar-->
+			<!-- Botón de "Modificar datos" junto al usuario a modificar.-->
                     <% if(correo.equals(ListaUsuarios.get(i).getCorreo())==true){ %>
 	                    <td >
 			 <!-- Formulario para enviar mediante el método POST el usuario a modificar a "modificarDatos.jsp"-->
