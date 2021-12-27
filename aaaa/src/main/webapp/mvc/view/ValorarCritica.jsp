@@ -93,7 +93,7 @@ W			}
 							<!-- Botón de "Modificar datos" junto al usuario a modificar-->
 		                    
 			                <td style="text-align:center" >
-							 <!-- Formulario para enviar mediante el método POST el usuario a modificar a "modificarDatos.jsp"-->
+							 <!-- Formulario para enviar mediante el método POST el usuario a modificar a "modificarDatos.jsp".-->
 			                    <form method="post" action= "/aaaa/ValorarCritica" >
 				                    <label for="1">1</label>
 						 			<input type="radio" id="valoracion" name="valoracion" value="1">
