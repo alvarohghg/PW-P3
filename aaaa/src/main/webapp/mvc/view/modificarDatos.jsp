@@ -14,7 +14,7 @@
 			form,h2,p {
 				 text-align:center;
 			}
-			input[type=text]{
+			input[type=text], input[type=password]{
 
 			  padding: 12px 20px;
 			  margin: 8px 0;
@@ -22,7 +22,7 @@
 			  border: none;
 			  background-color: #bd7df280;
 			  color: black;
-			  border-radius: 8px;
+			  border-radius:8px;
 			}
 			input{
 				background-color: #bd7df280;
