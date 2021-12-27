@@ -93,8 +93,8 @@
 
 <body>
 
-
-
+<%-- Se muestra el formulario para crear el espectáculo múltiple --%>
+ 
   <div class="container">
     <form id="formulario" method="post" action="/aaaa/addSesionesMultipleServlet">
                 <input type="hidden" id="titulo" name="titulo" value='<%=titulo %>'><br>		 
