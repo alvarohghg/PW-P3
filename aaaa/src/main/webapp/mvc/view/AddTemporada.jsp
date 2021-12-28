@@ -96,7 +96,7 @@ body {
 <body>
 
 
-
+<!-- Creamos el formulario con los datos del espectaculo deseados. -->
 <div class="container">
   <form method="post" action="/aaaa/TemporadaServlet">
   <div class="row">
