@@ -66,6 +66,7 @@
 		</style>
 	</head>
 	<body>
+		<!--Formulario para la consulta de espectaculo-->
 		<form method="post" action= "/aaaa/Buscar" >
 			<label for="Titulo">Titulo</label><br>
 			<input type="text" name="titulo" id="titulo" ><br/>
