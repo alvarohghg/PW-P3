@@ -111,7 +111,7 @@
     <body>
 
 
-
+<!-- Creamos el formulario con los datos del espectaculo deseados. -->
       <div class="container">
         <form method="post" action="/aaaa/PuntualServlet">
           <div class="row">
