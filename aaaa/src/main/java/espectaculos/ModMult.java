@@ -1,3 +1,4 @@
+/*Servlet para modificación de los datos de espectaculos múltiples de la base de datos*/
 package espectaculos;
 
 import java.io.IOException;
@@ -40,9 +41,11 @@ public class ModMult extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
 		String titulo_viejo = request.getParameter("titulo_viejo"); 
 		String descripcion = request.getParameter("descripcion");
 		categoria categoria=null;
+		//Si la categoria no es seleccionada en la pagina anterior se le asigna una categoria "cualquiera"
 		if(request.getParameter("categoria").equals("")) {
 			categoria=categoria.cualquiera;
 		}
@@ -63,7 +66,7 @@ public class ModMult extends HttpServlet {
 		else {
 			entradas = Integer.parseInt(request.getParameter("entradas"));
 		}
-
+		
 		java.sql.Date fechaV=null;
 		String sfechaV=request.getParameter("fecha_vieja");
 		if(sfechaV.equals("")==false) {
