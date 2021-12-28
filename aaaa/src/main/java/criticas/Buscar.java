@@ -44,6 +44,7 @@ public class Buscar extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//Recojemos el titulo, el correo y la categoria enviados desde las vista
 		String titulo = request.getParameter("titulo");
 		if(titulo.equals(null)==true) {
 			titulo="";
@@ -55,6 +56,7 @@ public class Buscar extends HttpServlet {
 		ArrayList<EspectaculoPuntual> ListaP=new ArrayList<EspectaculoPuntual>();
 		ArrayList<EspectaculoTemporada> ListaT=new ArrayList<EspectaculoTemporada>();
 		GE.guardarBDlistas();
+		//Guaradamos los datos de la base de datos de los tres tipos de espectaculos en unas lista auxiliares sobre las que trabajaremos
 		ListaP=GE.getListaEspectaculosP();
 		ListaT=GE.getListaEspectaculosT();
 		ListaM=GE.getListaEspectaculosM();
@@ -62,8 +64,9 @@ public class Buscar extends HttpServlet {
 		System.out.println(ListaT);
 		System.out.println(ListaM);*/
 		ArrayList<String> l= new ArrayList<String>();
-		
+		//Recorremos todas las listas dependiendo de las opciones introducidas
 		if(cate.equals(categoria.cualquiera)==false ) {
+			//Si la categoria es una especidica, son estos bucles donde si hemos introducido titulo solo buscara el espectaculo con ese titulo, si no hemos introducido buscara los espectaculos con esa categoria
 			for(int i=0;i<ListaM.size();i++){
 				if(cate.equals(ListaM.get(i).getCategoria())==true && (ListaM.get(i).getTitulo().equals(titulo)==true || titulo.equals("")==true )){
 					l.add(ListaM.get(i).getTitulo());
@@ -82,6 +85,7 @@ public class Buscar extends HttpServlet {
 		}
 		else {
 			if(titulo.equals("")==true){
+				//Si no hrmos introducido titulo guarrdara todos los espectaculos
 				for(int i=0;i<ListaM.size();i++){
 					l.add(ListaM.get(i).getTitulo());					
 				}
@@ -94,6 +98,7 @@ public class Buscar extends HttpServlet {
 				}
 			}
 			else {
+				//Si hemos introducido titulo buscara solo los espectaculos con ese titulo
 				for(int i=0;i<ListaM.size();i++){
 					if(ListaM.get(i).getTitulo().equals(titulo)==true){
 						l.add(ListaM.get(i).getTitulo());
@@ -113,7 +118,7 @@ public class Buscar extends HttpServlet {
 			}
 		}
 		
-		
+		//codigo HTML que mostramos 
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 			out.println("<!DOCTYPE html>");
@@ -163,29 +168,28 @@ public class Buscar extends HttpServlet {
 			
 
 			if(titulo.equals("")==true || GE.existeEspectaculo(titulo)) {
-				
-				out.println("<div align='center'>");
+			//codigo de cuando no hemos introducido titulo o existe el espectaculos
+			    out.println("<div align='center'>");
 			    out.println("<table  border='0' cellpadding=5  >");
-		        out.println("<tr>");
-	            out.println(" <th>Titulo</th>");
-	            out.println("<th>Categoria</th>");
-	            out.println(" </tr>");
-	            for(int i=0; i< l.size();i++){ 
-		            out.println("<tr >");
-		                out.println("<td>"+ l.get(i) +" </td>");
-		                out.println("<td>"+ GE.queCate(l.get(i)) +"</td>");
-		            out.println("<td >");
-	                out.println("<form method='post' action= '/aaaa/mvc/view/verEspectaculo.jsp'>");
-	                    out.println("<button class='button1' type=submit value='"+ l.get(i) +"' id='titulo' name='titulo'>Ver Espectaculo</button>");
-	                out.println("</form>");
-	                out.println("</tr>");
-				 } 
-		        out.println("</table>");
-		        out.println("</div>");
+		       	    out.println("<tr>");
+			    out.println(" <th>Titulo</th>");
+			    out.println("<th>Categoria</th>");
+			    out.println(" </tr>");
+			    for(int i=0; i< l.size();i++){ 
+				out.println("<tr >");
+				out.println("<td>"+ l.get(i) +" </td>");
+				out.println("<td>"+ GE.queCate(l.get(i)) +"</td>");
+				out.println("<td >");
+				out.println("<form method='post' action= '/aaaa/mvc/view/verEspectaculo.jsp'>");
+				out.println("<button class='button1' type=submit value='"+ l.get(i) +"' id='titulo' name='titulo'>Ver Espectaculo</button>");
+				out.println("</form>");
+				out.println("</tr>");
+				} 
+				out.println("</table>");
+				out.println("</div>");
 			}
 			else {
-				
-
+				//Mensaje de error si no existe el titulo que has especificado
 				out.println("<script defer type=\"text/javascript\">");
 				out.println("alert('No existe un espectaculo con ese titulo');");
 				out.println("</script>");
