@@ -42,6 +42,7 @@ public class PublicCritica extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//Recojemos los datos desde la vista
 		String titulo = request.getParameter("titulo");
 		String espectaculo = request.getParameter("espectaculo");
 		String puntuacion = request.getParameter("puntuacion");
@@ -54,7 +55,9 @@ public class PublicCritica extends HttpServlet {
 		GC.guardarBDC();
 		response.setContentType("text/html");
 		PrintWriter salida= response.getWriter();
+		//codigo HTML
 		if(GC.existeTitulo(titulo)  ) {
+			//Mensaje de cuando el titulo que utilizamos para la critica ya esta en uso
 			salida.println("<HTML> <body style='background-color: black'><script defer type=\"text/javascript\">");
 			salida.println("alert('El titulo de la critica ya esta en uso');");
 			salida.println("location='/aaaa/mvc/view/PubliCrit.jsp';");
@@ -62,13 +65,15 @@ public class PublicCritica extends HttpServlet {
 		}else {
 			if(GE.existeEspectaculo(espectaculo)) {
 				if(GC.crearCritica(titulo, espectaculo, puntuacion, review, correo, "0")) {
+					//Mensaje de alerta cuando hay no fallo al crear la critica					
 					salida.println("<HTML> <body style='background-color: black' ><script defer type=\"text/javascript\">");
 					salida.println("alert('Critica creada correctamente');");
 					salida.println("location='/aaaa/index.jsp';");
 					salida.println("</script></body></HTML> ");
 				}else {
+					//Mensaje de alerta cuando hay fallo al crear la critica
 					salida.println("<HTML> <body style='background-color: black' ><script defer type=\"text/javascript\">");
-					salida.println("alert('Critica creada MAL');");
+					salida.println("alert('Critica no creada');");
 					salida.println("location='/aaaa/index.jsp';");
 					salida.println("</script></body></HTML> ");
 				}
