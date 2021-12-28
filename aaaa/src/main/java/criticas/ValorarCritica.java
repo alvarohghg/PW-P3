@@ -41,7 +41,7 @@ public class ValorarCritica extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		//Recojemos los datos de la vista y llamamos a la funcion votar crittica
 		String titulo = request.getParameter("titulo");
 		String correo = request.getParameter("correo");
 		String valoracion = request.getParameter("valoracion");
@@ -82,9 +82,8 @@ public class ValorarCritica extends HttpServlet {
 			  out.println("</style>");  
 			  out.println("</head>");
 			  out.println("<body>");
-			  
+			  //dependiendo de valor de result si es 0 es que no hay error, si es otro valor es que hemos intentado votar la misma critica varias veces desde el mismo usuario
 			  if(result==0) {
-				  
 				  out.println("<script defer type=\"text/javascript\">");
 				  out.println("alert('Critica votada con exito');");
 				  out.println("</script>");
