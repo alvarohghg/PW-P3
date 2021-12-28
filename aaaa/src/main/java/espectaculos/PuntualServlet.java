@@ -1,3 +1,4 @@
+/*Servlet para el registro de un espectáculo puntual*/
 package espectaculos;
 
 import java.io.IOException;
@@ -51,7 +52,7 @@ public class PuntualServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		/*NO SE COMO VAN LOS TIPOS DE FECHA Y CATEGORIA*/
+		//Recogemos los datos de la pagina anterior
 		String titulo_punt = request.getParameter("titulo_punt"); 
 		String desc_punt = request.getParameter("desc_punt");
 		categoria categoria_punt = Enum.valueOf(categoria.class ,request.getParameter("categoria_punt"));
@@ -66,7 +67,7 @@ public class PuntualServlet extends HttpServlet {
 		//GU.guardarBDU();
 		response.setContentType("text/html");
 		PrintWriter salida= response.getWriter();
-		if(GE.existeEspectaculo(titulo_punt)) {
+		if(GE.existeEspectaculo(titulo_punt)) { //Mensaje de error en la creacion
 			salida.println("<HTML> <body style='background-color: black' ><script defer type=\"text/javascript\">");
 			salida.println("alert('Error al crear el espectaculo puntual');");
 			salida.println("location='/aaaa/index.jsp';");
