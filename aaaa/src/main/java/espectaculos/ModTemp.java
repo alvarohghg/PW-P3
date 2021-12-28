@@ -1,3 +1,4 @@
+/*Servlet para la modificación de los datos de temporada*/
 package espectaculos;
 
 import java.io.IOException;
@@ -43,6 +44,7 @@ public class ModTemp extends HttpServlet {
 		String titulo_viejo = request.getParameter("titulo_viejo"); 
 		String descripcion = request.getParameter("descripcion");
 		categoria categoria=null;
+		//asignamos la categoria de "cualquiera" si no ha sido seleccionada en la página anterior
 		if(request.getParameter("categoria").equals("")) {
 			categoria=categoria.cualquiera;
 		}
