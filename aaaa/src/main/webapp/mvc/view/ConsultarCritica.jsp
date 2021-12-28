@@ -68,7 +68,7 @@
                 <th>Titulo</th>
                 <th>Autor</th>
             </tr>
-		<!-- Traducción de la variable "tipo" de la base de datos-->
+		<!-- Traducción de la variable "tipo" de la base de datos.-->
             <% for(int i=0; i< ListaCriticas.size();i++){ 
             	String titulo=ListaCriticas.get(i).getTitulo();
             	String autor=ListaCriticas.get(i).getAutor();
