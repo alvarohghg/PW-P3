@@ -17,7 +17,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Administrador</title>
-		<!-- Declaración del estilo-->
+		<!-- Declaración del estilo.-->
 		<style>
 			table {
 			  border-collapse: collapse;
