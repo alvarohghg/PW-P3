@@ -59,7 +59,7 @@ public class BorrarEspect extends HttpServlet {
 		MultipleDAO MDAO=new MultipleDAO();
 		TemporadaDAO TDAO=new TemporadaDAO();
 		PuntualDAO PDAO=new PuntualDAO();
-
+		//Dependiendo del tipo de evento llamamos al DAO diferente
 		int tipo=GE.tipoEvento(titulo);
 		if(tipo==1) {
 			MDAO.eliminarMultipleTitulo(titulo);
@@ -70,6 +70,7 @@ public class BorrarEspect extends HttpServlet {
 		else if(tipo==3) {
 			PDAO.eliminarPuntualTitulo(titulo);
 		}
+		//Enviamos un mensaje una vez que finalizamos el proceso
 		response.setContentType("text/html");
 		PrintWriter salida= response.getWriter();
 		salida.println("<HTML> <body style='background-color: black' ><script defer type=\"text/javascript\">");
