@@ -41,6 +41,8 @@ public class BorrarFechaMultiple extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//Recogemos el titulo y la fecha y llamamos a la funcion correspondiente del DAO para eliminar la 
+		//sesión dada una fecha y un titulo
 		String titulo=request.getParameter("titulo");
 		java.sql.Date fecha=java.sql.Date.valueOf(request.getParameter("fecha"));
 		MultipleDAO MDAO=new MultipleDAO();
