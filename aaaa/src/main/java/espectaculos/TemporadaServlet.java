@@ -49,8 +49,7 @@ public class TemporadaServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
+		//Recojemos los datos de la vista		
 		String titulo_temp = request.getParameter("titulo_temp"); 
 		String desc_temp = request.getParameter("desc_temp");
 		categoria categoria_temp = Enum.valueOf(categoria.class ,request.getParameter("categoria_temp"));
@@ -63,18 +62,17 @@ public class TemporadaServlet extends HttpServlet {
 		TemporadaDAO TDAO=new TemporadaDAO();
 		EspectaculoTemporada temporada = new EspectaculoTemporada(); 
 		GestorEspectaculos GE =new GestorEspectaculos(); 
-		//Introducimos lo valores en la base de datos
 		response.setContentType("text/html");
 		PrintWriter salida= response.getWriter();
+		//si el titulo existe ya mandamos un mensaje de error
 		if(GE.existeEspectaculo(titulo_temp)) {
 			salida.println("<HTML> <body style='background-color: black' ><script defer type=\"text/javascript\">");
 			salida.println("alert('Error al crear el espectaculo de temporada');");
-			
-			salida.println("location='/aaaa/index.jsp';");
-			
+			salida.println("location='/aaaa/index.jsp';");			
 			salida.println("</script></body></HTML> ");
 			
 		}else {
+			//Introducimos lo valores en la base de datos
 			temporada.setTitulo(titulo_temp);
 			temporada.setDescripcion(desc_temp);
 			temporada.setCategoria(categoria_temp);
@@ -84,9 +82,9 @@ public class TemporadaServlet extends HttpServlet {
 			temporada.setInicio(inicio_temp);
 			temporada.setFin(fin_temp);
 			TDAO.escribirTemporadaBD(temporada);
+			//Codigo HTML de confirmacion de la creacion del espectaculo
 			salida.println("<HTML> <body style='background-color: black' ><script defer type=\"text/javascript\">");
 			salida.println("alert('Espectaculo de temporada creado correctamente');");
-			//TO DO la location
 			salida.println("location='/aaaa/index.jsp';");
 			salida.println("</script></body></HTML> ");
 			
