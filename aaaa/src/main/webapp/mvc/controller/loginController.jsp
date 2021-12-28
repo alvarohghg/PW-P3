@@ -33,7 +33,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Comprobar inicio sesion</title>
-		<!--Declaracion del estilo -->
+		<!--Declaracion del estilo.-->
 		<style>
 			button {
 			  background-color: #bd7df280;
