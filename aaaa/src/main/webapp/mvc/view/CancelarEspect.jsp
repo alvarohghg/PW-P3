@@ -76,7 +76,7 @@
 	<body>
 			<div align="center">
 		        <table  border="0" cellpadding=5  >
-		<!-- Título"LISTA DE USUARIOS"-->
+		<!-- Título"LISTA DE USUARIOS".-->
             <tr>
                 <th>Titulo</th> 
             </tr>
