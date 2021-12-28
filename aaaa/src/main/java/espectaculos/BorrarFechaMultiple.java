@@ -1,3 +1,4 @@
+/*Servlet para eliminación de sesiones de espectáculos múltiples*/
 package espectaculos;
 
 import java.io.IOException;
