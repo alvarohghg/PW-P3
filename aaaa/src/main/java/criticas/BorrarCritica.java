@@ -37,11 +37,12 @@ public class BorrarCritica extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// Recojemos los datos recibidos desde la vista y usamos la funcion borrarCritica para eliminarla
 		String titulo = request.getParameter("titulo");
 		String correo = request.getParameter("correo");
 		CriticasDAO CDAO=new CriticasDAO();
 		CDAO.borraCriticaBD(titulo, correo);
+		// Codigo HTML que nos muesta una alerta diciendo si lo hemos hecho bien
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 			  out.println("<!DOCTYPE html>");
