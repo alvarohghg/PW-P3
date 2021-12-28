@@ -58,16 +58,17 @@ public class RegistroUsuarios extends HttpServlet {
 		UsuarioDAO UDAO=new UsuarioDAO();
 		Usuario user = new Usuario(); 
 		GestorUsuario GU =new GestorUsuario(); 
-		//Inytroducimos lo valores en la base de datos
+		//Introducimos lo valores en la base de datos
 		GU.guardarBDU();
 		response.setContentType("text/html");
 		PrintWriter salida= response.getWriter();
+		//Mostramos el aviso de error si existe un usuario en la base de datos con el mismo correo
 		if(GU.existeUsuario(correo)) {
 			salida.println("<HTML> <body style='background-color: black' ><script defer type=\"text/javascript\">");
 			salida.println("alert('Error al crear el usuario');");
 			salida.println("location='/aaaa/mvc/view/Registro.jsp';");
 			salida.println("</script></body></HTML> ");
-		}else {
+		}else { //mostramos un mensaje cuando se realice el registro de forma correcta
 			user.setNombre(nombre);
 			user.setApellidos(apellidos);
 			user.setNick(nick);
