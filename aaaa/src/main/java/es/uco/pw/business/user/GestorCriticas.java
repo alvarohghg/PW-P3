@@ -9,7 +9,7 @@ import es.uco.pw.data.dao.UsuarioDAO;
  * Una clase que representa al gestor de criticas
  * @author Alvaro Berjillos
  * @author Alvaro Sanchez
- * @author Francisco Javier D�az
+ * @author Francisco Javier Dï¿½az
  * @version 1.0
  * */
 
@@ -172,7 +172,7 @@ public class GestorCriticas {
 						ListaCriticas.get(i).setValoraciones(op);
 						CDAO.actualizarCriticaBDpuntuacion(titulo, op);
 						ListaCriticas.get(i).setVotantes(ListaCriticas.get(i).getVotantes()+correo+",");
-						CDAO.actualizarCriticaBDvotantes(titulo,correo+"," );
+						CDAO.actualizarCriticaBDvotantes(titulo,ListaCriticas.get(i).getVotantes()+correo+"," );
 					}
 				}
 			}
