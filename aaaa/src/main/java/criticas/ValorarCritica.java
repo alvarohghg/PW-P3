@@ -55,7 +55,7 @@ public class ValorarCritica extends HttpServlet {
 			  out.println("<html>");
 			  out.println("<head>");
 			  out.println("<meta charset=\"utf-8\">");  
-			  out.println("<title>Critica Eliminada</title>");
+			  out.println("<title>Critica valorada</title>");
 			  out.println("<style>");     
 			  out.println("body {");
 			  out.println("background-image: url(' https://i.imgur.com/l4nKkCG.png');");
