@@ -1,3 +1,4 @@
+Para que funcione el programa es necesario añadir las librerias de mysql-conector y servlet-api al build-path del proyecto, y tambien es necesario incluir mysql-connector a las libreias del apache tom-cat
 Cuando ejecutas el programa ya sea desde eclipse o con desde consola con el .jar, lo primero que nos sale es un menú donde
 podemos hacer 2 cosas: registrarse o iniciar sesión.
 Si decidimos registrarnos, vamos a tener que introducir por consola el correo (que debe ser único), el nombre, los apellidos, el nick y el tipo de usuario que eres.
