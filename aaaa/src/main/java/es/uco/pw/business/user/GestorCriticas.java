@@ -9,7 +9,7 @@ import es.uco.pw.data.dao.UsuarioDAO;
  * Una clase que representa al gestor de criticas
  * @author Alvaro Berjillos
  * @author Alvaro Sanchez
- * @author Francisco Javier Dï¿½az
+ * @author Francisco Javier D�az
  * @version 1.0
  * */
 
