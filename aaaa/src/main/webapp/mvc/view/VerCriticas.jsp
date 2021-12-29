@@ -39,7 +39,6 @@
 			th, td {
 			  text-align: left;
 			  padding: 8px;
-			 border-bottom: 1px solid #ddd;
 			}
 			
 			

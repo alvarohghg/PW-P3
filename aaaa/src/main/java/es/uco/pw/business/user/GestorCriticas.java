@@ -130,12 +130,10 @@ public class GestorCriticas {
 	 * @throws IOException
 	 */
 	public int votarCritica(String correo, float puntuacion, String titulo) throws IOException {
-		System.out.println(correo);
-		System.out.println(puntuacion);
-		System.out.println(titulo);
+		
 
 		ListaCriticas= CDAO.obtenerCriticas();
-		System.out.println(ListaCriticas);
+		//System.out.println(ListaCriticas);
 
 		if(titulo.equals(null)) {
 			//System.out.println("Ha ocurrido un fallo");
@@ -174,7 +172,7 @@ public class GestorCriticas {
 						ListaCriticas.get(i).setValoraciones(op);
 						CDAO.actualizarCriticaBDpuntuacion(titulo, op);
 						ListaCriticas.get(i).setVotantes(ListaCriticas.get(i).getVotantes()+correo+",");
-						CDAO.actualizarCriticaBDvotantes(titulo,ListaCriticas.get(i).getVotantes()+correo+"," );
+						CDAO.actualizarCriticaBDvotantes(titulo,correo+"," );
 					}
 				}
 			}

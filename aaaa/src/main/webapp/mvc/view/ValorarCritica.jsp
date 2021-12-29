@@ -85,11 +85,10 @@ W			}
             </tr>
             <% for(int i=0; i< ListaCriticas.size();i++){ 
 	            	if(correo.equals(ListaCriticas.get(i).getAutor())==false){
-	            		String titulo=ListaCriticas.get(i).getTitulo();
 	            		aux=1;
 	            %>
 		                <tr >
-		                    <td><%= titulo %> </td>
+		                    <td><%= ListaCriticas.get(i).getTitulo() %> </td>
 							<!-- Botón de "Modificar datos" junto al usuario a modificar-->
 		                    
 			                <td style="text-align:center" >
@@ -106,7 +105,7 @@ W			}
 						 			<label for="5">5</label>
 						 			<input type="radio"  id="valoracion" name="valoracion" value="5">
 			                    	<input type="hidden" value="<%= correo %>" id="correo" name="correo"> </td><td >
-					    			<button class="button1" type=submit value="<%= titulo %>" id="titulo" name="titulo">Valorar</button>
+					    			<button class="button1" type=submit value="<%= ListaCriticas.get(i).getTitulo() %>" id="titulo" name="titulo">Valorar</button>
 								</form>
 							</td>
 		                </tr>

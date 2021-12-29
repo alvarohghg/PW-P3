@@ -179,7 +179,7 @@ public class CriticasDAO {
 			DBConnection dbConnection = new DBConnection();
 			Connection connection = dbConnection.getConnection();
 			//String query = propiedades(6);
-			String query = "UPDATE criticas SET puntuacion = ? WHERE titulo = ?";
+			String query = "UPDATE criticas SET valoraciones = ? WHERE titulo = ?";
 			PreparedStatement ps=connection.prepareStatement(query);
 			ps.setString(1,puntuacion);
 			ps.setString(2,titulo);
